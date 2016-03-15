@@ -6,6 +6,7 @@ package L8_socket_thread.ex1;
  */
 public class Main {
 
+    //первый вариант через интерфейс (тогда передаем в конструктор классу Thread
     static class Recipe implements Runnable{
         void cook(){
             System.out.println(Thread.currentThread().getName() );
@@ -18,8 +19,12 @@ public class Main {
             }
         }
     }
+
     public static void main(String[] args) {
 
+
+        //Второй вариант расширяем класс Thread,
+        // если гарантированно знаем что не будет предков
 
         Thread threadR = new Thread(new Recipe());
         threadR.start();
@@ -30,9 +35,16 @@ public class Main {
         }
         System.out.println(Thread.currentThread().getName());
 
+        new Thread(() -> {
+            System.out.println("Анонимный ПОВАР");
+        }).start();
+
 
     }
 
     //часто будет одна чашка на несколько потоков (один разделяемый ресурс)
     //нужно как-то между потоками обмениваться данными
+    //нужно запрещать из одной чашки есть нескольким потокам
+
+
 }

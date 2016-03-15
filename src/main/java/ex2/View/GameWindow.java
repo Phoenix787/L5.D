@@ -26,7 +26,7 @@ public class GameWindow extends JFrame {
 
     public void init(){
 
-        setSize(400,400);
+        setSize(200,200);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //setLayout(new BorderLayout()); // стоит по умолчанию JFrame (разделяет область приложения на пять частей: север, юг, запад, восток, центр
 
@@ -56,8 +56,8 @@ public class GameWindow extends JFrame {
                     //button.setActionCommand(GameController.checkWinner());
 
                     gameController.doShoot(new Point(finalI, finalJ), gameController.getUser().type);
-                    String textButton = e.getActionCommand();
-                    System.out.println("Command: " + textButton + ", x: " + finalJ + ", y: " + finalI);
+                   // String textButton = e.getActionCommand();
+                   // System.out.println("Command: " + textButton + ", x: " + finalJ + ", y: " + finalI);
                     button.setText(gameController.getUser().type.toString());
                 });
 
