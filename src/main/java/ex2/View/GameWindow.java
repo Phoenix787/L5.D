@@ -11,10 +11,17 @@ import java.awt.event.ActionListener;
 
 /**
  * Created by Сергеева on 10.03.2016.
+ *
  */
 public class GameWindow extends JFrame {
     JPanel jPanel = new JPanel();
     JButton[][] buttons = new JButton[3][3];
+
+    private GameController gameController;
+
+    public GameWindow(GameController gameController) {
+        this.gameController = gameController;
+    }
 
 
     public void init(){
@@ -32,7 +39,7 @@ public class GameWindow extends JFrame {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 JButton button = new JButton();
-                button.setText(j % 2 == 0 ? "X" : "O");
+                //button.setText(j % 2 == 0 ? "X" : "O");
                 buttons[i][j] = button;
                 jPanel.add(button);
                 final int finalJ = j;
@@ -47,10 +54,11 @@ public class GameWindow extends JFrame {
 
                 button.addActionListener((e)->{
                     //button.setActionCommand(GameController.checkWinner());
+
+                    gameController.doShoot(new Point(finalI, finalJ), gameController.getUser().type);
                     String textButton = e.getActionCommand();
                     System.out.println("Command: " + textButton + ", x: " + finalJ + ", y: " + finalI);
-                    GameController.doShoot(new Point(finalI, finalJ), textButton.equals("X")?Field.Type.X : Field.Type.O);
-                    //button.setText(Field.Type.X.toString());
+                    button.setText(gameController.getUser().type.toString());
                 });
 
             }

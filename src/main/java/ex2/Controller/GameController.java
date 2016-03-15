@@ -7,21 +7,23 @@ import ex2.Model.User;
 
 /**
  * Created by Сергеева on 10.03.2016.
+ *
  */
 public class GameController {
-    private Field field;
-    private User user;
-    private Computer computer;
+    public  Field field;
+    public  User user;
+    public  Computer computer;
 
-    public GameController(Field field, User user, Computer computer) {
-        this.field = field;
-        this.user = user;
-        this.computer = computer;
+    public GameController() {
+        field = new Field();
+        user = new User();
+        computer = new Computer();
     }
 
-    public static void doShoot(Point point, Field.Type type) {
-        User.point = point;
-        User.isShoot = true;
+    public void doShoot(Point point, Field.Type type) {
+        user.point = point;
+        user.isShoot = true;
+        user.type = type;
     }
 
     public Field.Type checkWinner(Field.Type type){

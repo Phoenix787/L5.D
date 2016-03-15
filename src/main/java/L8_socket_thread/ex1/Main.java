@@ -2,6 +2,7 @@ package L8_socket_thread.ex1;
 
 /**
  * Created by Сергеева on 15.03.2016.
+ *
  */
 public class Main {
 
@@ -24,11 +25,14 @@ public class Main {
         threadR.start();
 
         for (int i = 0; i < 10; i++) {
-            MyThread thread = new MyThread(i);
-            thread.start();
+           new MyThread(i).start();
+
         }
         System.out.println(Thread.currentThread().getName());
 
 
     }
+
+    //часто будет одна чашка на несколько потоков (один разделяемый ресурс)
+    //нужно как-то между потоками обмениваться данными
 }
