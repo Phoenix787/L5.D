@@ -1,5 +1,7 @@
 package U2.L1.ex5;
 
+import U2.L1.ex4.Animal;
+
 /**
  * Created by Сергеева on 16.03.2016.
  * <T extends Number> - эти ограничения применяются в момент создания класса
@@ -44,12 +46,18 @@ public class Gen1<T extends Number> {
 
     // что делать если нам нужно чтобы операнд был типом не просто какой-либо,
     // а определенного класса
+    // чтобы в параметр передавался кто-нибудь, кто является потомком от Number
+    // то есть дополнительное ограничение в рамках верхнего ограничения
 
-    void showDelta(Gen1<? super Number> operand) {
+    void showDelta(Gen1<? extends Number> operand) {
         System.out.println(number.doubleValue() - operand.number.doubleValue());
     }
 
     //************************************************************************************
+
+
+
+
 
 
 }
