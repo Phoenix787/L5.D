@@ -1,5 +1,8 @@
 package U2.L1.ex8;
 
+import U2.L1.ex5.Gen1;
+import U2.L1.ex6.Gen2;
+
 /**
  * Created by Сергеева on 16.03.2016.
  */
@@ -46,8 +49,17 @@ public class Gen<T, V> {
 //        objects = new T[100];
 //    }
 
+//
+//    class ThrowableClass<T> extends Throwable{
+//    }
 
 
+    void foo(){
+//    Gen1<Integer>[] integers;
+//    integers = new Gen1<Integer>[3];
+        Gen1<?>[] integers;
+        integers = new Gen1<?>[3];
+    }
 
 
 }
